@@ -1,18 +1,32 @@
-import { getDatabase,set,ref } from "firebase/database";
-import { app } from "./firebase/firebase";
+import { Outlet } from "react-router-dom"
+import { Footer, Header } from "./components"
+// import { useDispatch, useSelector } from "react-redux";
+// import { setDarkTheme, setLightTheme } from "../store/themeSlice";
+import { useEffect } from "react";
 
-const database=getDatabase(app)
 function App() {
-  const putData=()=>{
-    set(ref(database,"users"),{
-      name:"Roshni",
-      age:20
-    })
-  }
+//  const dispatch=useDispatch();
+//  const themeMode=useSelector((state)=>state.themeMode);
+
+//  const darkMode=()=>{
+//   dispatch(setDarkTheme());
+//  }
+
+//  const lightMode=()=>{
+//   dispatch(setLightTheme());
+//  }
+
+//  useEffect(() => {
+//    const html=docuemnt.querySelector("html");
+//    html.classList.remove("light","dark");
+//    html.classList.add(themeMode);
+//  }, [themeMode])
+ 
   return (
-    <>
-      <button onClick={putData}>create data</button>
-    </>
+    <div>
+      <Header/>
+      <Outlet/>
+    </div>
   )
 }
 
