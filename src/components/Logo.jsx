@@ -1,5 +1,5 @@
 import React from 'react';
-import logoLight from '../assets/MindOrb.png';
+import logoLight from '../assets/Mindorb.png';
 import logoDark from '../assets/Mindorb-light.png'; // Make sure you have the correct path and extension
 import { useSelector } from 'react-redux';
 
