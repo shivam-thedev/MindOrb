@@ -2,7 +2,6 @@ import Button from './Button';
 import Container from './Container';
 import Header from './Header';
 import Logo from './Logo';
-import Footer from './Footer';
 import LogoutBtn from './LogoutBtn'
 import Input from './Input';
 import Login from './Login';
@@ -19,7 +18,6 @@ export {
     Container,
     Header,
     Logo,
-    Footer,
     LogoutBtn,
     Input,
     Login,
