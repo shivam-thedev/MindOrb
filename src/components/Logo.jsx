@@ -10,7 +10,7 @@ function Logo({ className, ...props }) {
     <div className='dark:bg-transparent'>
       <img 
         src={themeMode === "light" ? logoLight : logoDark} 
-        className={`${className} `} 
+        className={`max-md:w-12 ${className} `} 
         {...props} 
         alt="Logo"
       />

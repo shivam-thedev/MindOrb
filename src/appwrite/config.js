@@ -24,7 +24,7 @@ export class Service{
                     content,
                     featuredImage,
                     status,
-                    userId
+                    userId,
                 }
             )
         } catch (error) {
@@ -77,14 +77,12 @@ export class Service{
         }
     }
 
-    async getPosts(){
+    async getPosts(queries=[Query.equal("status","active")]){
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                [
-                    Query.equal("status",["active"])
-                ]
+                queries,
             )
         } catch (error) {
             console.log("getPosts",error);
@@ -128,6 +126,23 @@ export class Service{
             return false;
         }
     }
+
+
+    async getPostsByUser(userId) {
+        try {
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                [Query.equal("userId", userId)]
+            );
+        } catch (error) {
+            console.error("Error fetching posts by user:", error);
+            return false;
+        }
+    }
+    
+    
 }
 
 const service = new Service();
+export default service

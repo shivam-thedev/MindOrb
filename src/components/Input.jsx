@@ -8,7 +8,7 @@ const Input=forwardRef(function Input({
 },ref){
   const id=useId();
   return (
-    <div className='mb-4 bg-transparent'>
+    <div className='w-full mb-4 bg-transparent'>
       {label && <label
       className='block text-lg font-semibold'
       htmlFor={id}
@@ -18,7 +18,7 @@ const Input=forwardRef(function Input({
       }
       <input
         type={type}
-        className={`w-full p-3 outline-none rounded-lg border-2 border-slate-300 focus:border-slate-500  dark:border-none dark:text-slate-900 $className`}
+        className={`w-full p-3 outline-none rounded-lg border-2 border-gray-300 focus:border-gray-500 dark:border-none dark:text-gray-900 ${className}`}
         ref={ref}
         {...props}
         id={id}

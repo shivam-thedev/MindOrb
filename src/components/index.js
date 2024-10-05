@@ -3,10 +3,16 @@ import Container from './Container';
 import Header from './Header';
 import Logo from './Logo';
 import Footer from './Footer';
-import Logout from './LogoutBtn'
+import LogoutBtn from './LogoutBtn'
 import Input from './Input';
 import Login from './Login';
 import Signup from './Signup';
+import PostForm from './PostForm';
+import RTE from './RTE';
+import Select from './Select';
+import AuthLayout from './AuthLayout';
+import PostCard from './PostCard';
+import Loader from './Loader/Loader';
 
 export {
     Button,
@@ -14,8 +20,14 @@ export {
     Header,
     Logo,
     Footer,
-    Logout,
+    LogoutBtn,
     Input,
     Login,
-    Signup
+    Signup,
+    PostForm,
+    RTE,
+    Select,
+    AuthLayout,
+    PostCard,
+    Loader
 };

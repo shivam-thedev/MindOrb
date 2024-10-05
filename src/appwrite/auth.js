@@ -1,9 +1,7 @@
 import { conf } from "../conf/conf";
 import { Client, Account, ID } from "appwrite";
-import 'react-toastify/dist/ReactToastify.css';
 
 export class AuthService{
-    //property declarations
     client = new Client();
     account;
     constructor(){
@@ -13,13 +11,13 @@ export class AuthService{
         this.account=new Account(this.client);
     }
 
-    async signup({name,email,password}){
+    async createAccount({name,email,password}){
         try {
-            const user=await this.account.create(ID.unique(),email,password,name);
-            if(user){
-                return await this.login({email,password});
+            const userAccount=await this.account.create(ID.unique(),email,password,name);
+            if(userAccount){
+                return this.login({email,password});
             }else{
-                return user;
+                return userAccount;
             }
         } catch (error) {
             throw error;
@@ -40,25 +38,19 @@ export class AuthService{
         } catch (error) {
             console.log("currentUser",error);
         }
+        return null;
     }
 
     async logout(){
         try {
-            return await this.account.deleteSessions();
+            await this.account.deleteSessions();
         } catch (error) {
             console.log("logout",error)
         }
     }
 
-    async loginWithGoogle(redirectUrl) {
-        try {
-            return this.account.createOAuth2Session('google', redirectUrl);
-        } catch (error) {
-            console.error("Google login error:", error);
-        }
-    }
-
 }
+
 
 const authService = new AuthService();
 
